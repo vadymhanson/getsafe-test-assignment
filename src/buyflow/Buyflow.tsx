@@ -1,21 +1,31 @@
 import React, { useState } from 'react'
+import { useParams } from 'react-router-dom';
 import AgeStep from './AgeStep'
 import EmailStep from './EmailStep'
 import SummaryStep from './SummaryStep'
 
-interface BuyflowProps {
-  productId: ProductIds
+interface ProductId {
+  developer: string;
+  designer: string;
+}
+
+interface RouteParams {
+  type: keyof ProductId;
 }
 
 export enum ProductIds {
-  devIns = 'dev_ins',
+  developer = "developer",
+  designer = "designer",
 }
 
-const PRODUCT_IDS_TO_NAMES = {
-  [ProductIds.devIns]: 'Developer Insurance',
+const PRODUCT_IDS_TO_NAMES: ProductId = {
+  [ProductIds.developer]: 'Developer Insurance',
+  [ProductIds.designer]: 'Designer Insurance',
+
 }
 
-const Buyflow: React.FC<BuyflowProps> = (props) => {
+const Buyflow: React.FC = () => {
+  const { type } = useParams<RouteParams>();
   const [currentStep, setStep] = useState('email')
   const [collectedData, updateData] = useState({
     email: '',
@@ -27,7 +37,7 @@ const Buyflow: React.FC<BuyflowProps> = (props) => {
   }
   return (
     <>
-      <h4>Buying {PRODUCT_IDS_TO_NAMES[props.productId]}</h4>
+      <h4>Buying {PRODUCT_IDS_TO_NAMES[type]}</h4>
       {(currentStep === 'email' && <EmailStep cb={getStepCallback('age')} />) ||
         (currentStep === 'age' && (
           <AgeStep cb={getStepCallback('summary')} />
