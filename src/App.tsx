@@ -1,8 +1,9 @@
 import React from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom'
 import Buyflow from './buyflow/Buyflow'
+import NotFound from './error/NotFound'
 
 const App = () => {
   return (
@@ -12,10 +13,10 @@ const App = () => {
           <img src={logo} className="App-logo" alt="logo" />
         </header>
         <Switch>
-          <Route path="/buy/insurance/:type">
+          <Route exact path="/buy/insurance/:type">
             <Buyflow />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <p>Welcome to Getsafe's Insurance</p>
             <div>
               <Link to="/buy/insurance/developer">Get started Developer Insurance!</Link>
@@ -24,6 +25,8 @@ const App = () => {
               <Link to="/buy/insurance/designer">Get started Designer Insurance!</Link>
             </div>
           </Route>
+          <Route path="/404" component={NotFound} />
+          <Redirect to="/404" />
         </Switch>
       </div>
     </Router>

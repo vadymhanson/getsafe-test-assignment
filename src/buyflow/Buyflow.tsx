@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import AgeStep from './AgeStep'
 import EmailStep from './EmailStep'
 import SummaryStep from './SummaryStep'
@@ -25,6 +25,7 @@ const PRODUCT_IDS_TO_NAMES: ProductId = {
 }
 
 const Buyflow: React.FC = () => {
+  const history = useHistory();
   const { type } = useParams<RouteParams>();
   const [currentStep, setStep] = useState('email')
   const [collectedData, updateData] = useState({
@@ -34,6 +35,10 @@ const Buyflow: React.FC = () => {
   const getStepCallback = (nextStep: string) => (field: string, value: any) => {
     updateData({ ...collectedData, [field]: value })
     setStep(nextStep)
+  }
+
+  if(!(type in ProductIds)) {
+    history.push('/404');
   }
   return (
     <>
