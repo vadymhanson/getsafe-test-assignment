@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import { ProductStep } from '../types/types'
 
 interface AgeStepProps {
-  cb: (field: string, value: number) => void
+  callback: (field: ProductStep, value: number) => void
 }
 
 const AgeStep: React.FC<AgeStepProps> = (props) => {
@@ -18,7 +19,7 @@ const AgeStep: React.FC<AgeStepProps> = (props) => {
           value={age}
         ></input>
       </div>
-      <button onClick={() => props.cb('age', age)}>Next</button>
+      <button onClick={() => props.callback('age', age)}>Next</button>
     </>
   )
 }
