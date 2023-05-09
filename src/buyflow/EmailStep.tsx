@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 interface EmailStepProps {
   cb: (field: string, value: string) => void
@@ -22,5 +23,9 @@ const EmailStep: React.FC<EmailStepProps> = (props) => {
     </>
   )
 }
+
+EmailStep.propTypes = {
+  cb: PropTypes.func.isRequired,
+};
 
 export default EmailStep
