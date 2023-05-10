@@ -8,6 +8,10 @@ const AgeStep: React.FC<AgeStepProps> = ({ callback }) => {
   const handleNextClick = () => {
     const ageInput = document.getElementById('age') as HTMLInputElement;
     const age = ageInput.value;
+    if (age === '') {
+      alert('Please enter your age');
+      return;
+    }
     callback(age);
   }
 

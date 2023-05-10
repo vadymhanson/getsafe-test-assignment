@@ -9,6 +9,10 @@ const EmailStep: React.FC<EmailStepProps> = ({ callback }) => {
   const handleNextClick = () => {
     const emailInput = document.getElementById('email') as HTMLInputElement;
     const email = emailInput.value;
+    if (email === '') {
+      alert('Please enter your age');
+      return;
+    }
     callback(email);
   }
 
