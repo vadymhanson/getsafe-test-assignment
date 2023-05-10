@@ -1,13 +1,14 @@
 import React from 'react';
-import { ProductStep } from '../types/types';
 
 interface AgeStepProps {
-  callback: (field: ProductStep, value: number) => void
+  callback: (value: string) => void
 }
 
 const AgeStep: React.FC<AgeStepProps> = ({ callback }) => {
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    callback('age', Number(event.target.value));
+  const handleNextClick = () => {
+    const ageInput = document.getElementById('age') as HTMLInputElement;
+    const age = ageInput.value;
+    callback(age);
   }
 
   return (
@@ -16,10 +17,10 @@ const AgeStep: React.FC<AgeStepProps> = ({ callback }) => {
         Age:{' '}
         <input
           type="number"
-          onChange={handleInputChange}
+          id="age"
         ></input>
       </div>
-      <button onClick={() => callback('age', 0)}>Next</button>
+      <button onClick={handleNextClick}>Next</button>
     </>
   );
 }

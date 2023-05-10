@@ -1,13 +1,15 @@
 import React from 'react';
-import { ProductStep } from '../types/types';
+
 
 interface EmailStepProps {
-  callback: (field: ProductStep, value: string) => void
+  callback: (value: string) => void
 }
 
 const EmailStep: React.FC<EmailStepProps> = ({ callback }) => {
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    callback('email', event.target.value);
+  const handleNextClick = () => {
+    const emailInput = document.getElementById('email') as HTMLInputElement;
+    const email = emailInput.value;
+    callback(email);
   }
 
   return (
@@ -16,10 +18,10 @@ const EmailStep: React.FC<EmailStepProps> = ({ callback }) => {
         Email:{' '}
         <input
           type="email"
-          onChange={handleInputChange}
+          id="email"
         ></input>
       </div>
-      <button onClick={() => callback('email', '')}>Next</button>
+      <button onClick={handleNextClick}>Next</button>
     </>
   );
 }
