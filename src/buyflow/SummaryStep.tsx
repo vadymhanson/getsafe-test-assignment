@@ -5,19 +5,18 @@ interface SummaryStepProps {
   collectedData: {
     email: string
     age: number
-    firstName?: string
-    lastName?: string
+    name?: string
   }
 }
 
 const SummaryStep: React.FC<SummaryStepProps> = ({collectedData}) => {
-  const {firstName, lastName, email, age} = collectedData
+  const {name, email, age} = collectedData;
 
   return (
     <>
-      {firstName && lastName && <div>Name: {firstName} {lastName}</div>}
+      {name && <div>Name: {name}</div>}
       {email && <div>Email: {email}</div>}
-      {age && <div>Age: {age}</div>}
+      {!!age && <div>Age: {age}</div>}
       <div>
         <Link to="/purchased=dev_ins">Purchase</Link>
       </div>
