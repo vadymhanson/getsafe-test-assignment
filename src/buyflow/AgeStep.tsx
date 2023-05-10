@@ -18,7 +18,7 @@ const AgeStep: React.FC<AgeStepProps> = ({ callback }) => {
   return (
     <>
       <div>
-        Age:{' '}
+        <label htmlFor="age">Age:{' '}</label>
         <input
           type="number"
           id="age"

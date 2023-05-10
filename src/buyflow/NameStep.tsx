@@ -18,11 +18,11 @@ const NameStep: React.FC<NameStepProps> = ({ callback }) => {
   return (
     <>
       <div>
-        First name:{' '}
+        <label htmlFor="firstName">First name:{' '}</label>
         <input type="text" id="firstName" />
       </div>
       <div>
-        Last name:{' '}
+        <label htmlFor="lastName">Last name:{' '}</label>
         <input type="text" id="lastName" />
       </div>
       <button onClick={handleNextClick}>Next</button>

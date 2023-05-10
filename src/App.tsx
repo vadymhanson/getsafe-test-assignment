@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import Buyflow from './buyflow/Buyflow'
 import NotFound from './error/NotFound'
 
@@ -26,7 +26,6 @@ const App = () => {
             </div>
           </Route>
           <Route path="/404" component={NotFound} />
-          <Redirect to="/404" />
         </Switch>
       </div>
     </Router>

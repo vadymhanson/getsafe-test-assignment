@@ -16,12 +16,14 @@ const Buyflow: React.FC = () => {
     age: 0,
     name: ''
   });
-  const currentSteps = BuyflowSteps[type];
-  const currentStep = currentSteps[currentStepIndex];
 
   if (!(type in ProductIds)) {
     history.push('/404');
+    return null;
   }
+
+  const currentSteps = BuyflowSteps[type];
+  const currentStep = currentSteps[currentStepIndex];
 
   const getNextStepCallback = (nextStepIndex: number) => (value: string| number) => {
     setData({ ...collectedData, [currentStep]: value });

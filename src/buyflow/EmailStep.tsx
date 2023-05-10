@@ -19,7 +19,7 @@ const EmailStep: React.FC<EmailStepProps> = ({ callback }) => {
   return (
     <>
       <div>
-        Email:{' '}
+        <label htmlFor="email">Email:{' '}</label>
         <input
           type="email"
           id="email"
