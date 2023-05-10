@@ -5,19 +5,24 @@ interface SummaryStepProps {
   collectedData: {
     email: string
     age: number
+    firstName?: string
+    lastName?: string
   }
 }
 
-const SummaryStep: React.FC<SummaryStepProps> = (props) => {
+const SummaryStep: React.FC<SummaryStepProps> = ({collectedData}) => {
+  const {firstName, lastName, email, age} = collectedData
+
   return (
     <>
-      <div>Email: {props.collectedData.email}</div>
-      <div>Age: {props.collectedData.age}</div>
+      {firstName && lastName && <div>Name: {firstName} {lastName}</div>}
+      {email && <div>Email: {email}</div>}
+      {age && <div>Age: {age}</div>}
       <div>
         <Link to="/purchased=dev_ins">Purchase</Link>
       </div>
     </>
   )
-}
+};
 
-export default SummaryStep
+export default SummaryStep;
