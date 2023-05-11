@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import { BuyflowSteps, ProductIds, PRODUCT_IDS_TO_NAMES } from '../utils/constants';
+import { BuyflowSteps, ProductIds, PRODUCT_IDS_TO_NAMES, Steps } from '../utils/constants';
+import { RouteParams } from '../types/types';
 import NameStep from './NameStep';
 import SummaryStep from './SummaryStep';
-import { RouteParams } from '../types/interfaces';
 import Step from './Step';
 
 const Buyflow: React.FC = () => {
@@ -32,10 +32,10 @@ const Buyflow: React.FC = () => {
   return (
     <>
       <h4>Buying {PRODUCT_IDS_TO_NAMES[type]}</h4>
-      {(currentStep === 'name' && <NameStep callback={getNextStepCallback(currentStepIndex + 1)} />)}
-      {(currentStep === 'email' && <Step label="Email" inputType="email" callback={getNextStepCallback(currentStepIndex + 1)} />)}
-      {(currentStep === 'age' && <Step label="Age" inputType="number" callback={getNextStepCallback(currentStepIndex + 1)} />)}
-      {(currentStep === 'summary' && <SummaryStep collectedData={collectedData} />)}
+      {(currentStep === Steps.name && <NameStep callback={getNextStepCallback(currentStepIndex + 1)} />)}
+      {(currentStep === Steps.email && <Step label="Email" inputType="email" callback={getNextStepCallback(currentStepIndex + 1)} />)}
+      {(currentStep === Steps.age && <Step label="Age" inputType="number" callback={getNextStepCallback(currentStepIndex + 1)} />)}
+      {(currentStep === Steps.summary && <SummaryStep collectedData={collectedData} />)}
     </>
   );
 };

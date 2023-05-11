@@ -1,8 +1,6 @@
 import React from 'react';
+import { NameStepProps } from '../types/types';
 
-interface NameStepProps {
-  callback: (value: string) => void
-}
 
 const NameStep: React.FC<NameStepProps> = ({ callback }) => {
   const handleNextClick = () => {
