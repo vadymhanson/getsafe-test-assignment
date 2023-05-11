@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { BuyflowSteps, ProductIds, PRODUCT_IDS_TO_NAMES } from '../utils/constants';
 import NameStep from './NameStep';
-import AgeStep from './AgeStep';
-import EmailStep from './EmailStep';
 import SummaryStep from './SummaryStep';
 import { RouteParams } from '../types/interfaces';
+import Step from './Step';
 
 const Buyflow: React.FC = () => {
   const history = useHistory();
@@ -34,8 +33,8 @@ const Buyflow: React.FC = () => {
     <>
       <h4>Buying {PRODUCT_IDS_TO_NAMES[type]}</h4>
       {(currentStep === 'name' && <NameStep callback={getNextStepCallback(currentStepIndex + 1)} />)}
-      {(currentStep === 'email' && <EmailStep callback={getNextStepCallback(currentStepIndex + 1)} />)}
-      {(currentStep === 'age' && <AgeStep callback={getNextStepCallback(currentStepIndex + 1)} />)}
+      {(currentStep === 'email' && <Step label="Email" inputType="email" callback={getNextStepCallback(currentStepIndex + 1)} />)}
+      {(currentStep === 'age' && <Step label="Age" inputType="number" callback={getNextStepCallback(currentStepIndex + 1)} />)}
       {(currentStep === 'summary' && <SummaryStep collectedData={collectedData} />)}
     </>
   );
