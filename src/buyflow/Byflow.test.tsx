@@ -14,9 +14,9 @@ jest.mock('react-router-dom', () => ({
 describe('Buyflow component', () => {
   it('renders without errors', () => {
     render(
-    <MemoryRouter>
-      <Buyflow />
-    </MemoryRouter>
+      <MemoryRouter>
+        <Buyflow />
+      </MemoryRouter>
     );
   });
 
