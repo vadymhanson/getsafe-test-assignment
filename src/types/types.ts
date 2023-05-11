@@ -20,11 +20,11 @@ export interface RouteParams {
 export interface StepProps {
   label: string;
   inputType: string;
-  callback: (value: string) => void;
+  onNext: (value: string) => void;
 }
 
 export interface NameStepProps {
-  callback: (value: string) => void
+  onNext: (value: string) => void
 }
 
 export interface SummaryStepProps {

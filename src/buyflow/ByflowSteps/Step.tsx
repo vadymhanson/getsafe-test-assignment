@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { StepProps } from '../../types/types';
 
-const Step: React.FC<StepProps> = ({ label, inputType, callback }) => {
+const Step: React.FC<StepProps> = ({ label, inputType, onNext }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleNextClick = () => {
@@ -10,7 +10,7 @@ const Step: React.FC<StepProps> = ({ label, inputType, callback }) => {
       alert(`Please enter your ${label.toLowerCase()}`);
       return;
     }
-    callback(input.value.trim());
+    onNext(input.value.trim());
   };
 
   return (

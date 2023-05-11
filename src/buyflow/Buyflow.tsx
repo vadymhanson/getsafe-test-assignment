@@ -32,9 +32,9 @@ const Buyflow: React.FC = () => {
   return (
     <>
       <h4>Buying {PRODUCT_IDS_TO_NAMES[type]}</h4>
-      {(currentStep === Steps.name && <NameStep callback={getNextStepCallback(currentStepIndex + 1)} />)}
-      {(currentStep === Steps.email && <Step label="Email" inputType="email" callback={getNextStepCallback(currentStepIndex + 1)} />)}
-      {(currentStep === Steps.age && <Step label="Age" inputType="number" callback={getNextStepCallback(currentStepIndex + 1)} />)}
+      {(currentStep === Steps.name && <NameStep onNext={getNextStepCallback(currentStepIndex + 1)} />)}
+      {(currentStep === Steps.email && <Step label="Email" inputType="email" onNext={getNextStepCallback(currentStepIndex + 1)} />)}
+      {(currentStep === Steps.age && <Step label="Age" inputType="number" onNext={getNextStepCallback(currentStepIndex + 1)} />)}
       {(currentStep === Steps.summary && <SummaryStep collectedData={collectedData} />)}
     </>
   );

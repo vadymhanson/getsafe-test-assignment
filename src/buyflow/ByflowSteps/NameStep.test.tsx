@@ -10,14 +10,14 @@ describe('NameStep', () => {
   });
 
   it('renders correctly', () => {
-    render(<NameStep callback={mockCallback} />);
+    render(<NameStep onNext={mockCallback} />);
     expect(screen.getByText('First name:')).toBeInTheDocument();
     expect(screen.getByText('Last name:')).toBeInTheDocument();
     expect(screen.getByRole('button')).toBeInTheDocument();
   });
 
-  it('calls the callback with the full name', () => {
-    render(<NameStep callback={mockCallback} />);
+  it('calls the onNext with the full name', () => {
+    render(<NameStep onNext={mockCallback} />);
     const firstNameInput = screen.getByLabelText('First name:') as HTMLInputElement;
     const lastNameInput = screen.getByLabelText('Last name:') as HTMLInputElement;
     const nextButton = screen.getByRole('button', { name: 'Next' });
@@ -29,7 +29,7 @@ describe('NameStep', () => {
 
   it('shows an alert when one of the input fields is empty', () => {
     const alert = jest.spyOn(window, 'alert').mockImplementation(() => {});
-    render(<NameStep callback={mockCallback} />);
+    render(<NameStep onNext={mockCallback} />);
     const nextButton = screen.getByRole('button', { name: 'Next' });
     fireEvent.click(nextButton);
     expect(alert).toHaveBeenCalledWith('Please enter your name');

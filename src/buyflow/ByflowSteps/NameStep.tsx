@@ -2,7 +2,7 @@ import React from 'react';
 import { NameStepProps } from '../../types/types';
 
 
-const NameStep: React.FC<NameStepProps> = ({ callback }) => {
+const NameStep: React.FC<NameStepProps> = ({ onNext }) => {
   const handleNextClick = () => {
     const firstName = (document.getElementById('firstName') as HTMLInputElement).value;
     const lastName = (document.getElementById('lastName') as HTMLInputElement).value;
@@ -10,7 +10,7 @@ const NameStep: React.FC<NameStepProps> = ({ callback }) => {
       alert('Please enter your name');
       return;
     }
-    callback(`${firstName} ${lastName}`);
+    onNext(`${firstName} ${lastName}`);
   }
 
   return (
