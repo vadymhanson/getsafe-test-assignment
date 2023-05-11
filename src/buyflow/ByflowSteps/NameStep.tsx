@@ -1,5 +1,5 @@
 import React from 'react';
-import { NameStepProps } from '../types/types';
+import { NameStepProps } from '../../types/types';
 
 
 const NameStep: React.FC<NameStepProps> = ({ callback }) => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import SummaryStep from './SummaryStep';
-import { SummaryStepProps } from '../types/types';
+import { SummaryStepProps } from '../../types/types';
 
 describe('SummaryStep', () => {
   const mockData: SummaryStepProps['collectedData'] = {

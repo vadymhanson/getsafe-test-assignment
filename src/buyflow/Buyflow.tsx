@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { BuyflowSteps, ProductIds, PRODUCT_IDS_TO_NAMES, Steps } from '../utils/constants';
 import { RouteParams } from '../types/types';
-import NameStep from './NameStep';
-import SummaryStep from './SummaryStep';
-import Step from './Step';
+import NameStep from './ByflowSteps/NameStep';
+import SummaryStep from './ByflowSteps/SummaryStep';
+import Step from './ByflowSteps/Step';
 
 const Buyflow: React.FC = () => {
   const history = useHistory();

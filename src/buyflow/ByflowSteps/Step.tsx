@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { StepProps } from '../types/types';
+import { StepProps } from '../../types/types';
 
 const Step: React.FC<StepProps> = ({ label, inputType, callback }) => {
   const inputRef = useRef<HTMLInputElement>(null);
